@@ -8,8 +8,6 @@ import { NavigationEvents } from "react-navigation";
 function SignupScreen({ navigation }) {
   const { state, signup, clearErrorMessage } = useContext(AuthContext);
 
-  // CHecking authenthication with inside token
-
   return (
     <View style={styles.container}>
       <NavigationEvents onWillFocus={clearErrorMessage} />
