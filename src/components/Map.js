@@ -1,19 +1,22 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import MapView, { Polyline } from "react-native-maps";
 
 function Map() {
   return (
     <View>
       <Text>I am a map</Text>
+      <MapView style={styles.map}>
+        <Polyline></Polyline>
+      </MapView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  map: {
+    height: 300,
     justifyContent: "center",
-    marginBottom: 150,
   },
 });
 
