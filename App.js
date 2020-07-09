@@ -11,8 +11,10 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
+import InitialLoadingScreen from "./src/screens/InitialLoadingScreen";
 
 const switchNavigator = createSwitchNavigator({
+  initialScreen: InitialLoadingScreen,
   loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen,
