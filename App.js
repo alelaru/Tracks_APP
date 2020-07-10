@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import AccountScreen from "./src/screens/AccountScreen";
 import SigninScreen from "./src/screens/signinScreen";
 import SignupScreen from "./src/screens/signupScreen";
@@ -9,9 +8,10 @@ import TrackCreateScreen from "./src/screens/TrackCreateScreen";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
-import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 import InitialLoadingScreen from "./src/screens/InitialLoadingScreen";
+import { Provider as AuthProvider } from "./src/context/AuthContext";
+import { Provider as LocationProvider } from "./src/context/LocationContext";
 
 const switchNavigator = createSwitchNavigator({
   initialScreen: InitialLoadingScreen,
@@ -33,12 +33,14 @@ const App = createAppContainer(switchNavigator);
 
 export default () => {
   return (
-    <AuthProvider>
-      <App
-        ref={(navigator) => {
-          setNavigator(navigator);
-        }}
-      ></App>
-    </AuthProvider>
+    <LocationProvider>
+      <AuthProvider>
+        <App
+          ref={(navigator) => {
+            setNavigator(navigator);
+          }}
+        ></App>
+      </AuthProvider>
+    </LocationProvider>
   );
 };

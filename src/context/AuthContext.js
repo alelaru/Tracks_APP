@@ -2,7 +2,6 @@ import createDataContext from "./createDataContext";
 import trackerApi from "../api/tracker";
 import { AsyncStorage } from "react-native";
 import { navigate } from "../navigationRef";
-import { NavigationEvents } from "react-navigation";
 
 const authReducer = (state, action) => {
   switch (action.type) {
@@ -53,6 +52,10 @@ const signup = (dispatch) => async ({ email, password }) => {
     navigate("TrackList");
   } catch (err) {
     //   We call dispatch everytime we want to update our state
+    console.log(email);
+    console.log(password);
+    console.log(err.message);
+
     dispatch({
       type: "add_error",
       payload: "Something went wrong with sign up",
@@ -70,6 +73,8 @@ const signin = (dispatch) => async ({ email, password }) => {
     dispatch({ type: "signin", payload: response.data.token });
     navigate("TrackList");
   } catch (err) {
+    console.log(email);
+    console.log(password);
     dispatch({
       type: "add_error",
       payload: "Something went wrong with sign in",
