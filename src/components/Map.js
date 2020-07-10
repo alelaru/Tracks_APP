@@ -15,8 +15,6 @@ function Map() {
     return <ActivityIndicator size="large" style={{ marginTop: 200 }} />;
   }
 
-  console.log(currentLocation.coords);
-
   return (
     <MapView
       style={styles.map}
