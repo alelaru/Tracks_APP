@@ -11,23 +11,17 @@ const getLocation = (increment) => {
       accuracy: 5,
       altitudeAccuracy: 5,
       altitude: 5,
-      longitude: 19.4811 + increment * tenMetersWithDegrees,
-      latitude: 98.96 + increment * tenMetersWithDegrees,
+      longitude: -98.869988 + increment * tenMetersWithDegrees,
+      latitude: 19.485787 + increment * tenMetersWithDegrees,
     },
   };
 };
 
 let counter = 0;
 setInterval(() => {
-  try {
-    const newLocal = "Expo.locationChanged";
-    Location.EventEmitter.emit(newLocal, {
-      watchId: Location._getCurrentWatchId(),
-      location: getLocation(counter),
-    });
-  } catch (e) {
-    console.log(e);
-  } finally {
-    counter++;
-  }
+  Location.EventEmitter.emit("Expo.locationChanged", {
+    watchId: Location._getCurrentWatchId(),
+    location: getLocation(counter),
+  });
+  counter++;
 }, 1000);

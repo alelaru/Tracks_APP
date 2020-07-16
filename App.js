@@ -15,10 +15,6 @@ import { Provider as LocationProvider } from "./src/context/LocationContext";
 
 const switchNavigator = createSwitchNavigator({
   initialScreen: InitialLoadingScreen,
-  loginFlow: createStackNavigator({
-    Signup: SignupScreen,
-    Signin: SigninScreen,
-  }),
   mainFlow: createBottomTabNavigator({
     trackListFlow: createStackNavigator({
       TrackList: TrackListScreen,
@@ -26,6 +22,10 @@ const switchNavigator = createSwitchNavigator({
     }),
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen,
+  }),
+  loginFlow: createStackNavigator({
+    Signup: SignupScreen,
+    Signin: SigninScreen,
   }),
 });
 
