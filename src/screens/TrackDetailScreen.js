@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { Text } from "react-native-elements";
 import { Context as TrackContext } from "../context/TrackContext";
 import MapView, { Polygon } from "react-native-maps";
 
@@ -11,7 +12,7 @@ function TrackDetailScreen({ navigation }) {
 
   return (
     <>
-      <Text>{track.name}</Text>
+      <Text h2>{track.name}</Text>
       <MapView
         initialRegion={{
           longitudeDelta: 0.01,
