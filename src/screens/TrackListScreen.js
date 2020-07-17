@@ -41,7 +41,7 @@ function TrackListScreen({ navigation }) {
 }
 
 TrackListScreen.navigationOptions = {
-  title: "Trackscrazy",
+  title: "Tracks",
 };
 
 const styles = StyleSheet.create({});

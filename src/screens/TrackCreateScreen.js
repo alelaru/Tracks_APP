@@ -8,6 +8,7 @@ import { Context as LocationContext } from "../context/LocationContext";
 import useLocation from "../hooks/useLocation.js";
 import { withNavigationFocus } from "react-navigation";
 import TrackForm from "../components/TrackForm.js";
+import { FontAwesome } from "@expo/vector-icons";
 
 const TrackCreateScreen = ({ isFocused }) => {
   const { state, updateLocation } = useContext(LocationContext);
@@ -31,5 +32,10 @@ const TrackCreateScreen = ({ isFocused }) => {
 };
 
 const styles = StyleSheet.create({});
+
+TrackCreateScreen.navigationOptions = {
+  title: "Add Track",
+  tabBarIcon: <FontAwesome name="plus-circle" size={24} color="black" />,
+};
 
 export default withNavigationFocus(TrackCreateScreen);
