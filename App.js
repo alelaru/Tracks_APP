@@ -12,6 +12,7 @@ import { setNavigator } from "./src/navigationRef";
 import InitialLoadingScreen from "./src/screens/InitialLoadingScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { Provider as LocationProvider } from "./src/context/LocationContext";
+import { Provider as TrackProvider } from "./src/context/TrackContext";
 
 const switchNavigator = createSwitchNavigator({
   initialScreen: InitialLoadingScreen,
@@ -33,14 +34,16 @@ const App = createAppContainer(switchNavigator);
 
 export default () => {
   return (
-    <LocationProvider>
-      <AuthProvider>
-        <App
-          ref={(navigator) => {
-            setNavigator(navigator);
-          }}
-        ></App>
-      </AuthProvider>
-    </LocationProvider>
+    <TrackProvider>
+      <LocationProvider>
+        <AuthProvider>
+          <App
+            ref={(navigator) => {
+              setNavigator(navigator);
+            }}
+          ></App>
+        </AuthProvider>
+      </LocationProvider>
+    </TrackProvider>
   );
 };
